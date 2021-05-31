@@ -7,7 +7,6 @@ import {
   Redirect,
   Switch,
 } from 'react-router-dom'
-import { Link } from 'react-router-dom'
 
 //components
 import Robot from './components/Robot'
@@ -36,15 +35,9 @@ const App = () => {
             <br /> <br />
             <br /> <br />
             <br /> <br />
-            <Router>
-              <Link className='butoni' to='/Create' exact>
-                -Add New
-              </Link>
-              <br /> <br />
-              <Link className='butoni' to='/All' exact>
-                -All Tasks
-              </Link>
-            </Router>
+            <button className='butoni'>-Add New</button>
+            <br /> <br />
+            <button className='butoni'>-All Tasks</button>
           </Col>
           <Col lg={6}>
             <Router>

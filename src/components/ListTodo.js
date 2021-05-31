@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react'
 
 // import EditTodo from './EditTodo'
 import { propTypes } from 'react-bootstrap/esm/Image'
-import { Button, Modal } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 import EditTodo from './EditTodo'
 
 const ListTodo = () => {

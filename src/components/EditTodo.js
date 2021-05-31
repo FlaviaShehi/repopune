@@ -1,36 +1,37 @@
-import React, { Fragment, useState } from 'react'
-import { Button, Modal } from 'react-bootstrap'
+import React, { Fragment } from 'react'
 
 const EditTodo = () => {
-  const [show, setShow] = useState(false)
-
-  const handleClose = () => setShow(false)
-  const handleShow = () => setShow(true)
-
   return (
     <Fragment>
-      <Button variant='primary' onClick={handleShow}>
-        Edit
-      </Button>
+      <button
+        type='button'
+        class='btn btn-primary'
+        data-toggle='modal'
+        data-target='#myModal'
+      >
+        Open modal
+      </button>
 
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Edit</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <input type='text' />
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant='secondary' onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant='primary' onClick={handleClose}>
-            Update
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      <div class='modal fade' id='myModal'>
+        <div class='modal-dialog'>
+          <div class='modal-content'>
+            <div class='modal-header'>
+              <h4 class='modal-title'>Modal Heading</h4>
+              <button type='button' class='close' data-dismiss='modal'>
+                &times;
+              </button>
+            </div>
+
+            <div class='modal-body'>Modal body..</div>
+
+            <div class='modal-footer'>
+              <button type='button' class='btn btn-danger' data-dismiss='modal'>
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </Fragment>
   )
 }
-
-export default EditTodo
