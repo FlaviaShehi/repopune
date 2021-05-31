@@ -1,25 +1,74 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment } from 'react'
+import './App.css'
+import { Container, Row, Col } from 'react-grid-system'
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch,
+} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-function App() {
+//components
+import Robot from './components/Robot'
+import Create from './components/Create'
+import All from './components/All'
+import FaqeTask from './components/FaqeTask'
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Fragment>
+      <nav class='navbar-nav s-auto'>
+        <div class='container-fluid'>
+          <div class='navbar-header'>
+            <div class='topnav-right'>
+              <a>
+                <b>This is a notebook</b>
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <Container>
+        <Row>
+          <Col lg={3}>
+            <br /> <br /> <br />
+            <br /> <br />
+            <br /> <br />
+            <br /> <br />
+            <Router>
+              <Link className='butoni' to='/Create' exact>
+                -Add New
+              </Link>
+              <br /> <br />
+              <Link className='butoni' to='/All' exact>
+                -All Tasks
+              </Link>
+            </Router>
+          </Col>
+          <Col lg={6}>
+            <Router>
+              <Switch>
+                <Route path='/' exact>
+                  <Robot />
+                </Route>
+                <Route path='/All' exact>
+                  <All />
+                </Route>
+                <Route path='/Create' exact>
+                  <Create />
+                </Route>
+                <Route path='/FaqeTask' exact>
+                  <FaqeTask />
+                </Route>
+                <Redirect to='/' />
+              </Switch>
+            </Router>
+          </Col>
+          <Col lg={3}></Col>
+        </Row>
+      </Container>
+    </Fragment>
+  )
 }
-
-export default App;
+export default App

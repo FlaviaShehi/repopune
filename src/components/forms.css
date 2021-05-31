@@ -1,0 +1,72 @@
+.forma {
+  border-radius: 0rem;
+  background-color: #fedbdf;
+  color: #555454;
+  margin-top: 30px;
+}
+
+.text {
+  margin-left: 200px;
+}
+
+.text1 {
+  margin-left: -30px;
+}
+
+.create {
+  width: 100px;
+  height: 34.96px;
+  margin-left: 200px;
+  background: #f94b5d;
+  border-radius: 10px;
+}
+
+.butoni {
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.foto {
+  margin-left: 200px;
+}
+
+.head {
+  border-radius: 0rem;
+  background-color: #fedbdf;
+  color: #555454;
+  margin-top: 30px;
+}
+
+.logo {
+  width: 400px;
+}
+
+p {
+  position: absolute;
+  width: 279.64px;
+  height: 61.94px;
+  margin-left: 300px;
+  margin-top: 80px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 100;
+  font-size: 25px;
+  line-height: 29px;
+
+  color: #000000;
+}
+
+#rregullo {
+  margin-left: 200px;
+}
+
+.deletecat {
+  margin-left: 200px;
+}

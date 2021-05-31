@@ -1,0 +1,64 @@
+import React, { Fragment, useEffect, useState } from 'react'
+
+// import EditTodo from './EditTodo'
+import { propTypes } from 'react-bootstrap/esm/Image'
+import { Button, Modal } from 'react-bootstrap'
+import EditTodo from './EditTodo'
+
+const ListTodo = () => {
+  const [todos, setTodos] = useState([])
+
+  //deleteTodo
+
+  const deleteTodo = async (id) => {
+    try {
+      const deleteTodo = await fetch(`http://localhost:5001/todos/${id}`, {
+        method: 'DELETE',
+      })
+
+      setTodos(todos.filter((todo) => todo.todo_id !== id))
+    } catch (err) {
+      console.error(err.message)
+    }
+  }
+
+  const getTodos = async () => {
+    try {
+      const response = await fetch('http://localhost:5001/todos')
+      const jsonData = await response.json()
+
+      setTodos(jsonData)
+    } catch (err) {
+      console.error(err.message)
+    }
+  }
+
+  useEffect(() => {
+    getTodos()
+  }, [])
+
+  console.log(todos)
+
+  return (
+    <Fragment>
+      {todos.map((todo) => (
+        <div className='row' id='rregullo'>
+          <div>{todo.task_name}</div>
+          <Button key={todo.todo_id} variant='primary'>
+            {/* <EditTodo /> */} Edit
+          </Button>
+
+          <Button
+            className='btn btn-danger'
+            key={todo.todo_id}
+            onClick={() => deleteTodo(todo.todo_id)}
+          >
+            Delete
+          </Button>
+        </div>
+      ))}
+    </Fragment>
+  )
+}
+
+export default ListTodo
