@@ -43,7 +43,7 @@ const App = () => {
             <Router>
               <Switch>
                 <Route path='/' exact>
-                  <Robot />
+                  <FaqeTask />
                 </Route>
                 <Route path='/All' exact>
                   <All />
@@ -51,8 +51,8 @@ const App = () => {
                 <Route path='/Create' exact>
                   <Create />
                 </Route>
-                <Route path='/FaqeTask' exact>
-                  <FaqeTask />
+                <Route path='/Robot' exact>
+                  <Robot />
                 </Route>
                 <Redirect to='/' />
               </Switch>

@@ -21,6 +21,7 @@ const Create = () => {
         header: { ' Content-Type': 'application/json' },
         body: JSON.stringify(body),
       })
+
       console.log(response)
     } catch (err) {
       console.error(err.message)
