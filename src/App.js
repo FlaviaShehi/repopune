@@ -6,6 +6,7 @@ import {
   Route,
   Redirect,
   Switch,
+  Link,
 } from 'react-router-dom'
 
 //components
@@ -29,18 +30,28 @@ const App = () => {
         </div>
       </nav>
       <Container>
-        <Row>
-          <Col lg={3}>
-            <br /> <br /> <br />
-            <br /> <br />
-            <br /> <br />
-            <br /> <br />
-            <button className='butoni'>-Add New</button>
-            <br /> <br />
-            <button className='butoni'>-All Tasks</button>
-          </Col>
-          <Col lg={6}>
-            <Router>
+        <Router>
+          <Row>
+            <Col lg={3}>
+              <br /> <br /> <br />
+              <br /> <br />
+              <Link to='/Robot'>
+                <button className='butoni'>-Home Page </button>
+              </Link>
+              <br /> <br />
+              <Link to='/'>
+                <button className='butoni'>- Tasks</button>
+              </Link>
+              <br /> <br />
+              <Link to='/Create'>
+                <button className='butoni'>-Add New</button>
+              </Link>
+              <br /> <br />
+              <Link to='/All'>
+                <button className='butoni'>-All Tasks</button>
+              </Link>
+            </Col>
+            <Col lg={6}>
               <Switch>
                 <Route path='/' exact>
                   <FaqeTask />
@@ -56,10 +67,10 @@ const App = () => {
                 </Route>
                 <Redirect to='/' />
               </Switch>
-            </Router>
-          </Col>
-          <Col lg={3}></Col>
-        </Row>
+            </Col>
+            <Col lg={3}></Col>
+          </Row>
+        </Router>
       </Container>
     </Fragment>
   )

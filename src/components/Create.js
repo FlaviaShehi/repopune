@@ -5,8 +5,8 @@ import ListCategory from './ListCategory'
 
 const Create = () => {
   const [description, setDescription] = useState({
-    task_name: '',
-    notes: '',
+    task_name: 'Task Name',
+    notes: 'Notes',
     date: '',
     category_id: '',
   })
@@ -22,7 +22,7 @@ const Create = () => {
         body: JSON.stringify(body),
       })
 
-      console.log(response)
+      window.location = '/All'
     } catch (err) {
       console.error(err.message)
     }
@@ -38,7 +38,9 @@ const Create = () => {
             type='text'
             className='text1'
             value={description.task_name}
-            onChange={(e) => setDescription(e.target.value)}
+            onChange={(e) => {
+              setDescription(e.target.value)
+            }}
           />
         </Card.Header>
         <Card.Body>
@@ -55,15 +57,17 @@ const Create = () => {
             onChange={(e) => setDescription(e.target.value)}
           />
           <h4> Category:</h4>
-          <ListCategory />
-        </Card.Body>
-        <Card.Footer>
+          <ListCategory
+            setDescription={setDescription}
+            description={description}
+          />
+
           <div>
-            <button className='create' onClick={onSubmitForm}>
+            <button className='create' onSubmit={onSubmitForm}>
               Create
             </button>
           </div>
-        </Card.Footer>
+        </Card.Body>
       </Card>
     </Fragment>
   )

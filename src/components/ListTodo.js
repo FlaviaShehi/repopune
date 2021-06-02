@@ -44,7 +44,7 @@ const ListTodo = () => {
           {todo.task_name}
 
           <Button key={todo.todo_id} variant='primary'>
-            <EditTodo todo={todo} />
+            {/* <EditTodo todo={todo} /> */} Edit
           </Button>
 
           <button

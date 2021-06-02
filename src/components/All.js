@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import ListCategory from './ListCategory'
-import { propTypes } from 'react-bootstrap/esm/Image'
+// import { propTypes } from 'react-bootstrap/esm/Image'
 import { Card, Button, ButtonGroup, Dropdown } from 'react-bootstrap'
 import ListTodo from './ListTodo'
 import './forms.css'
@@ -65,7 +65,7 @@ const All = () => {
             <Dropdown.Menu>
               {categories.map((cat) => (
                 <Dropdown.Item
-                  href='#/action-1'
+                  href='#/'
                   key={cat.category_id}
                   onClick={() => deleteCategory(cat.category_id)}
                 >
