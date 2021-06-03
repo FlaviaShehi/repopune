@@ -2,23 +2,28 @@ import React, { Fragment, useState } from 'react'
 import { Card } from 'react-bootstrap'
 import './forms.css'
 import ListCategory from './ListCategory'
+import DatePicker from 'react-datepicker'
 
-const Create = () => {
+function Create() {
   const [description, setDescription] = useState({
-    task_name: 'Task Name',
-    notes: 'Notes',
+    task_name: '',
+    notes: '',
     date: '',
     category_id: '',
   })
 
+  const [startDate, setStartDate] = useState(new Date())
+
   const onSubmitForm = async (e) => {
     e.preventDefault()
+    console.log(e)
     try {
-      const body = { description }
+      console.log(description)
+      const body = description
 
       const response = await fetch('http://localhost:5001/todos', {
         method: 'POST',
-        header: { ' Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
       })
 
@@ -44,26 +49,35 @@ const Create = () => {
           />
         </Card.Header>
         <Card.Body>
-          <h4>Notes:</h4>
+          <h3>Notes:</h3>
           <input
             type='text'
             value={description.notes}
             onChange={(e) => setDescription(e.target.value)}
           />
-          <h4>Date:</h4>
-          <input
+          <h3>Date:</h3>
+          {/* <input
             type='date'
             value={description.date}
             onChange={(e) => setDescription(e.target.value)}
+          /> */}
+          <DatePicker
+            description={description}
+            setDescription={setDescription}
+            selected={startDate}
+            onChange={(date) => {
+              setStartDate(date)
+              setDescription({ ...description, date: startDate })
+            }}
           />
-          <h4> Category:</h4>
+          <h3> Category:</h3>
           <ListCategory
             setDescription={setDescription}
             description={description}
           />
-
           <div>
-            <button className='create' onSubmit={onSubmitForm}>
+            <br />
+            <button className='create' onClick={onSubmitForm}>
               Create
             </button>
           </div>

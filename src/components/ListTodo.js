@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react'
 import { propTypes } from 'react-bootstrap/esm/Image'
 import { Button } from 'react-bootstrap'
 import EditTodo from './EditTodo'
+import './forms.css'
 
 const ListTodo = () => {
   const [todos, setTodos] = useState([])
@@ -40,15 +41,15 @@ const ListTodo = () => {
   return (
     <Fragment>
       {todos.map((todo) => (
-        <div className='row' id='rregullo'>
-          {todo.task_name}
+        <div id='rregullo'>
+          <h3>{todo.task_name}</h3>
 
-          <Button key={todo.todo_id} variant='primary'>
+          <Button key={todo.todo_id} variant='primary' className='rregbutoni'>
             {/* <EditTodo todo={todo} /> */} Edit
           </Button>
 
           <button
-            className='btn btn-danger'
+            className='rregbutoni'
             key={todo.todo_id}
             onClick={() => deleteTodo(todo.todo_id)}
           >

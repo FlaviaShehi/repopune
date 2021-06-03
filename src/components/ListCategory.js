@@ -3,7 +3,7 @@ import EditTodo from './EditTodo'
 import { propTypes } from 'react-bootstrap/esm/Image'
 const axios = require('axios')
 
-const ListCategory = () => {
+const ListCategory = ({ setDescription, description }) => {
   const [categories, setCategories] = useState('')
 
   const getCat = async () => {
@@ -27,16 +27,18 @@ const ListCategory = () => {
   return (
     <Fragment>
       {categories &&
-        categories.map((category) => (
+        categories.map((c) => (
           <button
-            className='butonii'
-            key={category.category_id}
-            value={category.category_id}
-            onClick={(category) => {
-              getCat(category.target.value)
+            className='rregullobutoni'
+            key={c.category_id}
+            value={c.category_id}
+            onClick={() => {
+              setDescription({ ...description, category_id: c.category_id })
+              console.log(description)
+              // getCat(c.target.value)
             }}
           >
-            {category.category_name}
+            {c.category_name}
           </button>
         ))}
     </Fragment>

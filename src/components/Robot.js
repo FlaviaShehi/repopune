@@ -4,8 +4,6 @@ import './forms.css'
 import { Container, Row, Col } from 'react-grid-system'
 import { BrowserRouter as Router, Link } from 'react-router-dom'
 
-import Create from './Create'
-
 const Robot = () => {
   return (
     <Fragment>
