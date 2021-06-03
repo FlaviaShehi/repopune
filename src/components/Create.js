@@ -16,9 +16,9 @@ function Create() {
 
   const onSubmitForm = async (e) => {
     e.preventDefault()
-    console.log(e)
+    // console.log(e)
     try {
-      console.log(description)
+      // console.log(description)
       const body = description
 
       const response = await fetch('http://localhost:5001/todos', {
@@ -44,7 +44,7 @@ function Create() {
             className='text1'
             value={description.task_name}
             onChange={(e) => {
-              setDescription(e.target.value)
+              setDescription({ ...description, task_name: e.target.value })
             }}
           />
         </Card.Header>
@@ -53,7 +53,9 @@ function Create() {
           <input
             type='text'
             value={description.notes}
-            onChange={(e) => setDescription(e.target.value)}
+            onChange={(e) =>
+              setDescription({ ...description, notes: e.target.value })
+            }
           />
           <h3>Date:</h3>
           {/* <input
